@@ -25,6 +25,8 @@
 		// Extends default options if passed in arguments
 		if (arguments[0] && typeof arguments[0] === "object")
 			this.options = extendDefaults(defaults, arguments[0]);
+		else
+			this.options = defaults;
 	}
 
 	// Public methods
