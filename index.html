@@ -4,17 +4,23 @@
 	<meta charset="UTF-8">
 	<title>Js modal</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="modal.css">
 </head>
 <body>
 
+<button id="trigger" class="trigger-button" type="button">Launch modal</button>
 	
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="modal.js"></script>
 <script>
 	var myModal = new Modal({
 		content: '<h1>My modal</h1><p>This is my custom modal</p>',
 		maxWidth: 600
 	});
-	myModal.open();
+
+	var triggerButton = document.getElementById("trigger");
+	triggerButton.addEventListener("click", function () {
+		myModal.open();
+	});
 </script>
 </body>
 </html>
