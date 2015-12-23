@@ -46,8 +46,8 @@
 		// If the modal is taller than the window, we add our anchored class
 		this.modal.className = this.modal.className + 
 			(this.modal.offsetHeight > window.innerHeight ? 
-				" my-modal-open my-modal-anchored" : "my-modal-open");
-		this.overlay.className - this.overlay.className + " my-modal-open";
+				" my-modal-open my-modal-anchored" : " my-modal-open");
+		this.overlay.className = this.overlay.className + " my-modal-open";
 
 	}
 
@@ -64,7 +64,7 @@
 			that.modal.parentNode.removeChild(that.modal);
 		});
 		this.modal.addEventListener(this.transitionEnd, function () {
-			if (thath.overlay.parentNode)
+			if (that.overlay.parentNode)
 				that.overlay.parentNode.removeChild(that.overlay);
 		});
 	}
@@ -88,7 +88,7 @@
 
 		// Create modal element
 		this.modal                = document.createElement("div");
-		this.modal.className      = "my-modal" + this.options.className;
+		this.modal.className      = "my-modal " + this.options.className;
 		this.modal.style.minWidth = this.options.minWidth + "px";
 		this.modal.style.maxWidth = this.options.maxWidth + "px";
 
@@ -103,7 +103,7 @@
 		// If overlay is true, add one
 		if (this.options.overlay === true) {
 			this.overlay = document.createElement("div");
-			this.overlay.className = "my-modal-overlay" + this.options.classname;
+			this.overlay.className = "my-modal-overlay " + this.options.className;
 			docFrag.appendChild(this.overlay);
 		}
 

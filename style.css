@@ -17,14 +17,14 @@
 	-o-transition     : 1ms opacity ease;
 	transition        : 1ms opacity ease;
 
-	background: rgba(0, 0, 0, .6);
+	background-color: rgba(0, 0, 0, .6);
 }
 
-.my-modal-overlay {
+.my-modal {
 	position: absolute;
 	z-index: 9999;
 	top: 50%;
-	left: 50:;
+	left: 50%;
 
 	opacity: 0;
 
@@ -37,11 +37,11 @@
 	-o-transition     : 1ms opacity ease;
 	transition        : 1ms opacity ease;
 
-	-webkit-transform: translate(-50%, 50%); 
-	-moz-transform   : translate(-50%, 50%);
-	-ms-transform    : translate(-50%, 50%);
-	-o-transform     : translate(-50%, 50%);
-	transform        : translate(-50%, 50%);
+	-webkit-transform: translate(-50%, -50%); 
+	-moz-transform   : translate(-50%, -50%);
+	-ms-transform    : translate(-50%, -50%);
+	-o-transform     : translate(-50%, -50%);
+	transform        : translate(-50%, -50%);
 
 	border-radius: 2px;
 	background: #fff;
@@ -93,7 +93,7 @@
 
 /** Default animation */
 .my-modal-overlay.fade-and-drop {
-	display: block 
+	display: block;
 	opacity: 0;
 }
 
