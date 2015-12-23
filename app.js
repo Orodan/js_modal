@@ -44,6 +44,7 @@
 		return source;
 	}
 
+	// Build modal
 	function buildOut () {
 
 		var content, contentHolder, docFrag;
@@ -90,6 +91,15 @@
 
 		// Append DocumentFragment to body
 		document.body.appendChild(docFrag);
+	}
+
+	function initializeEvents () {
+
+		if (this.closeButton)
+			this.closeButton.addEventListener('click', this.close.bind(this));
+
+		if (this.overlay)
+			this.overlay.addEventListener('click', this.close.bind(this));
 	}
 
 }());
