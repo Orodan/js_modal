@@ -28,6 +28,22 @@
 
 	Modal.prototype.open = function () {
 
+		// Buidl out our modal
+		buildOut.call(this);
+
+		// Initialize our event listeners
+		initializeEvents.call(this);
+
+		// Force the browser to recalc and recognize our added elements
+		window.getComputedStyle(this.modal).height;
+
+		// Add our classes
+		// If the modal is taller than the window, we add our anchored class
+		this.modal.className = this.modal.className + 
+			(this.modal.offsetHeight > window.innerHeight ? 
+				" my-modal-open my-modal-anchored" : "my-modal-open");
+		this.overlay.className - this.overlay.className + " my-modal-open";
+
 	}
 
 	// Private methods
@@ -44,7 +60,7 @@
 		return source;
 	}
 
-	// Build modal
+	// Build out our modal
 	function buildOut () {
 
 		var content, contentHolder, docFrag;
@@ -93,6 +109,7 @@
 		document.body.appendChild(docFrag);
 	}
 
+	// Initialize and bind events to our modal
 	function initializeEvents () {
 
 		if (this.closeButton)
