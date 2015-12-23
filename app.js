@@ -4,6 +4,9 @@
 	// Constructor
 	this.Modal = function () {
 
+		// Determine proper prefix
+		this.transitionEnd = transitionSelect();
+
 		// Global element references
 		this.closeButton = null;
 		this.modal = null;
@@ -66,18 +69,6 @@
 
 	// Private methods
 
-	// Utility method to extend defaults with user options
-	function extendDefaults (source, properties) {
-
-		var property;
-		for(property in properties) {
-			if(source.hasOwnProperty(property))
-				source[property] = properties[property];
-		}
-
-		return source;
-	}
-
 	// Build out our modal
 	function buildOut () {
 
@@ -135,6 +126,32 @@
 
 		if (this.overlay)
 			this.overlay.addEventListener('click', this.close.bind(this));
+	}
+
+	// Utility method to extend defaults with user options
+	function extendDefaults (source, properties) {
+
+		var property;
+		for(property in properties) {
+			if(source.hasOwnProperty(property))
+				source[property] = properties[property];
+		}
+
+		return source;
+	}
+
+	// Utility method to determine which transition end event is supported
+	function transitionSelect () {
+
+		var el = document.createElement("div");
+
+		if (el.style.WebkitTransition) 
+			return "webkitTransitionEnd";
+
+		if (el.style.OTransition)
+			return "oTransitionEnd";
+
+		return "transitionend";
 	}
 
 }());
