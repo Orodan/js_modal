@@ -46,6 +46,24 @@
 
 	}
 
+	Modal.prototype.close = function () {
+
+		var that = this;
+
+		// Remove the open class name
+		this.modal.className   = this.modal.className.replace(" my-modal-open", "");
+		this.overlay.className = this.modal.className.replace(" my-modal-open", "");
+
+		// Listen for css transitionned events and then remove the nodes from the DOM
+		this.modal.addEventListener(this.transitionEnd, function () {
+			that.modal.parentNode.removeChild(that.modal);
+		});
+		this.modal.addEventListener(this.transitionEnd, function () {
+			if (thath.overlay.parentNode)
+				that.overlay.parentNode.removeChild(that.overlay);
+		});
+	}
+
 	// Private methods
 
 	// Utility method to extend defaults with user options
